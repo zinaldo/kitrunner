@@ -17,10 +17,16 @@ export type RegistrationKitStatus = "pending" | "at_desk" | "delivered";
 
 export type EventStaffRole = "admin" | "staff";
 
+/** Alinha com `GenericFunction` do PostgREST; sem RPCs tipados ainda. */
+type DatabaseFunctions = Record<
+  string,
+  { Args: Record<string, unknown> | never; Returns: unknown }
+>;
+
 export type Database = {
   public: {
     /** Obrigatório para `GenericSchema` no @supabase/supabase-js v2 (senão `Schema` vira `never`). */
-    Functions: {};
+    Functions: DatabaseFunctions;
     Tables: {
       events: {
         Row: {
