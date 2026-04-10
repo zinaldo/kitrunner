@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Default app tokens (non–Candy surfaces).
+*/
+:root {
+  --stitch-canvas: 244 246 248;
+  --stitch-surface: 255 255 255;
+  --stitch-ink: 15 23 42;
+  --stitch-muted: 100 116 139;
+  --stitch-accent: 13 148 136;
+  --stitch-accent-soft: 204 251 241;
+  --stitch-radius: 0.75rem;
+  --foreground: rgb(var(--stitch-ink));
+  --background: rgb(var(--stitch-canvas));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --stitch-canvas: 15 23 42;
+    --stitch-surface: 30 41 59;
+    --stitch-ink: 248 250 252;
+    --stitch-muted: 148 163 184;
+    --stitch-accent-soft: 19 78 74;
+  }
+}
+
+/*
+  Candy — Joyful Pop (Stitch project 17508580698655994247 designTheme.namedColors).
+  Scoped so staff workstation / admin dashboard match export without forcing Candy everywhere.
+*/
+.candy-staff,
+.candy-admin {
+  --candy-background: 254 247 255;
+  --candy-surface: 254 247 255;
+  --candy-surface-container: 248 238 248;
+  --candy-surface-container-low: 251 242 251;
+  --candy-on-surface: 46 26 40;
+  --candy-on-surface-variant: 96 72 104;
+  --candy-primary: 224 64 160;
+  --candy-on-primary: 255 255 255;
+  --candy-primary-container: 240 128 192;
+  --candy-secondary: 124 82 170;
+  --candy-on-secondary: 255 255 255;
+  --candy-tertiary: 0 150 204;
+  --candy-on-tertiary: 255 255 255;
+  --candy-outline: 144 120 152;
+  --candy-primary-fixed-dim: 240 160 204;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
