@@ -17,6 +17,6 @@ export type AdminOrServerSupabase = {
 export async function getSupabaseAdminOrServer(): Promise<AdminOrServerSupabase> {
   const admin = createSupabaseAdminServerClient();
   const supabase = (admin ??
-    (await createSupabaseServerClient())) as SupabaseClient<Database>;
+    (await createSupabaseServerClient())) as unknown as SupabaseClient<Database>;
   return { supabase, admin };
 }

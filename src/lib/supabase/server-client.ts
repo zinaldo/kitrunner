@@ -7,9 +7,9 @@ import type { Database } from "@/lib/supabase/types";
  * Server Supabase client (Server Components, Route Handlers, Server Actions).
  * Uses the anon key + cookie jar; add RLS policies for your MVP rules.
  *
- * Return type is asserted: `createServerClient` from @supabase/ssr uses schema
- * generics that differ from `SupabaseClient<Database>` and break strict builds
- * when passed to query helpers typed against @supabase/supabase-js.
+ * `createServerClient` is still typed as `SupabaseClient<Database, …, Schema>`
+ * while `supabase-js` 2.49+ uses extra generics; a single `as` is rejected, so
+ * we bridge via `unknown` (see supabase/ssr#106).
  */
 export async function createSupabaseServerClient(): Promise<
   SupabaseClient<Database>
@@ -39,5 +39,5 @@ export async function createSupabaseServerClient(): Promise<
         }
       },
     },
-  }) as SupabaseClient<Database>;
+  }) as unknown as SupabaseClient<Database>;
 }

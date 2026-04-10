@@ -86,7 +86,7 @@ export async function updateRegistrationFromDeskAction(
     }
 
     const admin = createSupabaseAdminServerClient();
-    const writeClient = (admin ?? supabase) as SupabaseClient<Database>;
+    const writeClient = (admin ?? supabase) as unknown as SupabaseClient<Database>;
 
     const existing = await fetchSearchRegistrationById(
       writeClient,

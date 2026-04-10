@@ -32,7 +32,7 @@ export async function confirmDeliveryAction(
 
     const staffUserId = user.id;
     const admin = createSupabaseAdminServerClient();
-    const writeClient = (admin ?? supabase) as SupabaseClient<Database>;
+    const writeClient = (admin ?? supabase) as unknown as SupabaseClient<Database>;
 
     const { error: insertError } = await writeClient.from("deliveries").insert({
       registration_id: input.registrationId,
