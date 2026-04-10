@@ -19,6 +19,8 @@ export type EventStaffRole = "admin" | "staff";
 
 export type Database = {
   public: {
+    /** Obrigatório para `GenericSchema` no @supabase/supabase-js v2 (senão `Schema` vira `never`). */
+    Functions: {};
     Tables: {
       events: {
         Row: {
@@ -36,6 +38,7 @@ export type Database = {
           name: string;
         };
         Update: Partial<Database["public"]["Tables"]["events"]["Row"]>;
+        Relationships: [];
       };
       desks: {
         Row: {
@@ -61,6 +64,7 @@ export type Database = {
           is_active?: boolean;
           external_key?: string | null;
         };
+        Relationships: [];
       };
       registrations: {
         Row: {
@@ -121,6 +125,7 @@ export type Database = {
           search_text?: string;
           metadata?: Json | null;
         };
+        Relationships: [];
       };
       races: {
         Row: {
@@ -146,6 +151,7 @@ export type Database = {
           wave?: string | null;
           sort_order?: number;
         };
+        Relationships: [];
       };
       kit_types: {
         Row: {
@@ -162,6 +168,7 @@ export type Database = {
         Update: {
           name?: string;
         };
+        Relationships: [];
       };
       kit_items: {
         Row: {
@@ -176,6 +183,7 @@ export type Database = {
         Update: {
           label?: string;
         };
+        Relationships: [];
       };
       event_staff: {
         Row: {
@@ -193,6 +201,7 @@ export type Database = {
         Update: {
           role?: EventStaffRole;
         };
+        Relationships: [];
       };
       event_required_fields: {
         Row: {
@@ -220,6 +229,7 @@ export type Database = {
           is_required?: boolean;
           sort_order?: number;
         };
+        Relationships: [];
       };
       desk_display_state: {
         Row: {
@@ -231,6 +241,19 @@ export type Database = {
           created_at: string;
           updated_at: string;
         };
+        Insert: {
+          desk_id: string;
+          event_id: string;
+          registration_id?: string | null;
+          display_variant?: string | null;
+          updated_by_user_id?: string | null;
+        };
+        Update: {
+          registration_id?: string | null;
+          display_variant?: string | null;
+          updated_by_user_id?: string | null;
+        };
+        Relationships: [];
       };
       deliveries: {
         Row: {
@@ -249,6 +272,11 @@ export type Database = {
           delivered_at: string;
           notes?: string | null;
         };
+        Update: {
+          notes?: string | null;
+          delivered_at?: string;
+        };
+        Relationships: [];
       };
     };
     Views: {
@@ -271,6 +299,7 @@ export type Database = {
           participant_sex: string | null;
           age_group: string | null;
         };
+        Relationships: [];
       };
     };
     Enums: {
