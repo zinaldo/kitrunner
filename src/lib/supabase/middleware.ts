@@ -29,7 +29,8 @@ function redirectToLogin(request: NextRequest, withNextPath?: string): NextRespo
 
 /**
  * Refresh da sessão Supabase + controle de acesso.
- * Sem env público do Supabase: rotas sensíveis fecham (fail-closed), exceto /login, /signup/* e /display/*.
+ * Sem env público do Supabase: rotas sensíveis fecham (fail-closed), exceto /login e /signup/*.
+ * Rotas /display não passam por getUser() aqui (evita 429 em TVs com auto-refresh).
  */
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -39,12 +40,17 @@ export async function updateSession(request: NextRequest) {
   const isDisplayPublic = path.startsWith("/display");
   const onAuthPage = isAuthPagePath(path);
 
+  /** TVs /display fazem refresh frequente; getUser() bate no Auth e estoura 429. */
+  if (isDisplayPublic) {
+    return NextResponse.next({ request });
+  }
+
   const hasSupabaseEnv =
     Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
     Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   if (!hasSupabaseEnv) {
-    if (isDisplayPublic || onAuthPage) {
+    if (onAuthPage) {
       return NextResponse.next({ request });
     }
     if (path === "/" || path.startsWith("/admin") || path.startsWith("/staff")) {
@@ -80,7 +86,7 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (isDisplayPublic || onAuthPage) {
+  if (onAuthPage) {
     return response;
   }
 
