@@ -1,5 +1,6 @@
 "use server";
 
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { parseBirthDateCell } from "@/lib/import/parse-birth-date";
 import { userIsEventStaff } from "@/lib/queries/event-staff-access";
 import { looksLikeUuid } from "@/lib/queries/resolve-event-desk";
@@ -10,7 +11,7 @@ import {
 import { buildRegistrationSearchText } from "@/lib/registrations/search-text";
 import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
 import { createSupabaseServerClient } from "@/lib/supabase/server-client";
-import type { Json } from "@/lib/supabase/types";
+import type { Database, Json } from "@/lib/supabase/types";
 
 export type UpdateRegistrationFromDeskInput = {
   eventId: string;
@@ -85,7 +86,7 @@ export async function updateRegistrationFromDeskAction(
     }
 
     const admin = createSupabaseAdminServerClient();
-    const writeClient = admin ?? supabase;
+    const writeClient = (admin ?? supabase) as SupabaseClient<Database>;
 
     const existing = await fetchSearchRegistrationById(
       writeClient,

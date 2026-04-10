@@ -1,7 +1,9 @@
 "use server";
 
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
 import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import type { Database } from "@/lib/supabase/types";
 
 export type ConfirmDeliveryInput = {
   registrationId: string;
@@ -30,7 +32,7 @@ export async function confirmDeliveryAction(
 
     const staffUserId = user.id;
     const admin = createSupabaseAdminServerClient();
-    const writeClient = admin ?? supabase;
+    const writeClient = (admin ?? supabase) as SupabaseClient<Database>;
 
     const { error: insertError } = await writeClient.from("deliveries").insert({
       registration_id: input.registrationId,
