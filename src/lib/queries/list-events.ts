@@ -1,7 +1,10 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/lib/supabase/types";
 
-type DeskRow = Database["public"]["Tables"]["desks"]["Row"];
+type StaffPickerDeskRow = Pick<
+  Database["public"]["Tables"]["desks"]["Row"],
+  "id" | "event_id" | "label" | "external_key" | "sort_order" | "is_active"
+>;
 
 export type AdminEventListRow = {
   id: string;
@@ -108,7 +111,7 @@ export async function fetchStaffEventsWithDesksForUser(
   if (eventsRes.error) throw eventsRes.error;
   if (desksRes.error) throw desksRes.error;
 
-  const desksByEvent = new Map<string, DeskRow[]>();
+  const desksByEvent = new Map<string, StaffPickerDeskRow[]>();
   for (const d of desksRes.data ?? []) {
     if (!d.is_active) continue;
     const list = desksByEvent.get(d.event_id) ?? [];
