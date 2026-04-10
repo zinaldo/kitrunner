@@ -255,6 +255,7 @@ export type Database = {
           updated_by_user_id?: string | null;
         };
         Update: {
+          event_id?: string;
           registration_id?: string | null;
           display_variant?: string | null;
           updated_by_user_id?: string | null;
