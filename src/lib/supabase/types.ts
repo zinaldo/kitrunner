@@ -131,7 +131,22 @@ export type Database = {
           search_text?: string;
           metadata?: Json | null;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "registrations_race_id_fkey";
+            columns: ["race_id"];
+            isOneToOne: false;
+            referencedRelation: "races";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "registrations_kit_type_id_fkey";
+            columns: ["kit_type_id"];
+            isOneToOne: false;
+            referencedRelation: "kit_types";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       races: {
         Row: {
