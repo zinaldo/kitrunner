@@ -3,11 +3,15 @@ import { notFound, redirect } from "next/navigation";
 import { StaffDeskClient } from "@/components/staff/station/staff-desk-client";
 import { userIsEventStaff } from "@/lib/queries/event-staff-access";
 import { displayDeskPath, displayTvPath, loginPath } from "@/lib/routes";
-import type { ImportFieldKey } from "@/lib/event-import-rules";
 import {
+  defaultImportRulesState,
+  type ImportFieldKey,
+} from "@/lib/event-import-rules";
+import {
+  fetchEventRequiredFieldRows,
   IMPORT_FIELD_DEFAULT_LABELS,
+  importRulesFromFieldRows,
   isImportFieldKey,
-  resolveImportRulesForEvent,
 } from "@/lib/queries/event-import-rules-resolve";
 import {
   fetchKitTypesForEventSettings,
@@ -50,18 +54,17 @@ export default async function StaffDeskConsolePage({
   const raceOptions = raceList.map((r) => ({ id: r.id, name: r.name }));
   const kitTypeOptions = kitTypeList.map((k) => ({ id: k.id, name: k.name }));
 
-  const rules = await resolveImportRulesForEvent(supabase, event.id);
-  const { data: fieldConfig } = await supabase
-    .from("event_required_fields")
-    .select("field_key, label, is_enabled, is_required, sort_order")
-    .eq("event_id", event.id)
-    .order("sort_order", { ascending: true });
+  const fieldRows = await fetchEventRequiredFieldRows(supabase, event.id);
+  const rules =
+    fieldRows.length === 0
+      ? defaultImportRulesState()
+      : importRulesFromFieldRows(fieldRows);
 
   const fieldLabels: Record<ImportFieldKey, string> = {
     ...IMPORT_FIELD_DEFAULT_LABELS,
   };
   const requiredFieldDisplayOrder: ImportFieldKey[] = [];
-  for (const r of fieldConfig ?? []) {
+  for (const r of fieldRows) {
     if (!r.field_key || !isImportFieldKey(r.field_key)) continue;
     fieldLabels[r.field_key] = r.label;
     if (r.is_enabled && r.is_required) {

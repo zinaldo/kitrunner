@@ -75,14 +75,11 @@ function rowsForInsert(
   }));
 }
 
-/**
- * Loads import/column rules from `event_required_fields`.
- * If the table is missing or has no rows for this event, returns app defaults.
- */
-export async function resolveImportRulesForEvent(
+/** Linhas de `event_required_fields` para UI (guichê, import, etc.). */
+export async function fetchEventRequiredFieldRows(
   supabase: SupabaseClient<Database>,
   eventId: string,
-): Promise<EventImportRulesState> {
+): Promise<EventRequiredFieldRow[]> {
   const { data, error } = await supabase
     .from("event_required_fields")
     .select("field_key, label, is_enabled, is_required, sort_order")
@@ -91,12 +88,23 @@ export async function resolveImportRulesForEvent(
 
   if (error) {
     if (isMissingSchemaEntityError(error.message, "event_required_fields")) {
-      return defaultImportRulesState();
+      return [];
     }
     throw error;
   }
 
-  const rows = (data ?? []) as EventRequiredFieldRow[];
+  return (data ?? []) as EventRequiredFieldRow[];
+}
+
+/**
+ * Loads import/column rules from `event_required_fields`.
+ * If the table is missing or has no rows for this event, returns app defaults.
+ */
+export async function resolveImportRulesForEvent(
+  supabase: SupabaseClient<Database>,
+  eventId: string,
+): Promise<EventImportRulesState> {
+  const rows = await fetchEventRequiredFieldRows(supabase, eventId);
   if (rows.length === 0) {
     return defaultImportRulesState();
   }
