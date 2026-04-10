@@ -9,6 +9,10 @@ import {
   isImportFieldKey,
   resolveImportRulesForEvent,
 } from "@/lib/queries/event-import-rules-resolve";
+import {
+  fetchKitTypesForEventSettings,
+  fetchRacesForEventSettings,
+} from "@/lib/queries/event-settings";
 import { resolveDeskRow, resolveEventRow } from "@/lib/queries/resolve-event-desk";
 import { createSupabaseServerClient } from "@/lib/supabase/server-client";
 
@@ -38,27 +42,13 @@ export default async function StaffDeskConsolePage({
   const desk = await resolveDeskRow(supabase, event.id, deskParam);
   if (!desk) notFound();
 
-  const [{ data: raceRows }, { data: kitTypeRows }] = await Promise.all([
-    supabase
-      .from("races")
-      .select("id, name")
-      .eq("event_id", event.id)
-      .order("sort_order", { ascending: true }),
-    supabase
-      .from("kit_types")
-      .select("id, name")
-      .eq("event_id", event.id)
-      .order("name", { ascending: true }),
+  const [raceList, kitTypeList] = await Promise.all([
+    fetchRacesForEventSettings(supabase, event.id),
+    fetchKitTypesForEventSettings(supabase, event.id),
   ]);
 
-  const raceOptions = (raceRows ?? []).map((r) => ({
-    id: r.id,
-    name: r.name,
-  }));
-  const kitTypeOptions = (kitTypeRows ?? []).map((k) => ({
-    id: k.id,
-    name: k.name,
-  }));
+  const raceOptions = raceList.map((r) => ({ id: r.id, name: r.name }));
+  const kitTypeOptions = kitTypeList.map((k) => ({ id: k.id, name: k.name }));
 
   const rules = await resolveImportRulesForEvent(supabase, event.id);
   const { data: fieldConfig } = await supabase
