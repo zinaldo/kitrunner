@@ -36,7 +36,7 @@ export function mapTvDeskTileRow(row: TvDeskTileRow): TvWallDeskTileModel {
   }
 
   let status: TvDeskTileStatus = "processing";
-  let showCheck = true;
+  const showCheck = true;
   if (
     row.display_variant === "success" ||
     row.kit_status === "delivered"

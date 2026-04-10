@@ -10,8 +10,8 @@ export function parseBirthDateCell(raw: string): string | null {
 
   const slash = t.match(/^(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})$/);
   if (slash) {
-    let a = Number(slash[1]);
-    let b = Number(slash[2]);
+    const a = Number(slash[1]);
+    const b = Number(slash[2]);
     const y = slash[3];
     let day: number;
     let month: number;

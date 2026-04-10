@@ -33,7 +33,6 @@ import type {
 import {
   adminEventImportPath,
   adminEventsPath,
-  adminEventSettingsPath,
   adminEventStatsPath,
 } from "@/lib/routes";
 import type { EventStatus } from "@/lib/supabase/types";
