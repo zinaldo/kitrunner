@@ -3,7 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { organizerActionGate } from "@/lib/auth/require-organizer";
 import { parseDelimitedText } from "@/lib/csv/parse-delimited-text";
-import { prepareRegistrationImport } from "@/lib/import/prepare-registration-import";
+import {
+  prepareRegistrationImport,
+  type PreparedImportRow,
+} from "@/lib/import/prepare-registration-import";
 import { resolveImportRulesForEvent } from "@/lib/queries/event-import-rules-resolve";
 import {
   fetchEventSettingsRow,
@@ -111,7 +114,7 @@ export async function importRegistrationsAction(
     let inserted = 0;
     let skipped = 0;
 
-    async function insertOne(line: number, row: (typeof prepared.items)[0]["row"]) {
+    async function insertOne(line: number, row: PreparedImportRow) {
       const { error } = await supabase.from("registrations").insert(row);
       if (error) {
         if (error.code === "23505") {
