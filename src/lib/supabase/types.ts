@@ -102,6 +102,25 @@ export type Database = {
           shirt_size?: string | null;
           metadata?: Json | null;
         };
+        Update: {
+          race_id?: string | null;
+          kit_type_id?: string | null;
+          full_name?: string;
+          birth_date?: string | null;
+          sex?: string | null;
+          team?: string | null;
+          document_id?: string | null;
+          registration_proof_code?: string | null;
+          shirt_size?: string | null;
+          bib_number?: string;
+          kit_status?: RegistrationKitStatus;
+          last_called_at?: string | null;
+          last_desk_id?: string | null;
+          delivered_at?: string | null;
+          delivered_by_user_id?: string | null;
+          search_text?: string;
+          metadata?: Json | null;
+        };
       };
       races: {
         Row: {
@@ -222,6 +241,13 @@ export type Database = {
           delivered_at: string;
           notes: string | null;
           created_at: string;
+        };
+        Insert: {
+          registration_id: string;
+          desk_id: string;
+          staff_user_id: string;
+          delivered_at: string;
+          notes?: string | null;
         };
       };
     };
