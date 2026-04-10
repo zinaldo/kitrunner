@@ -12,8 +12,7 @@ import {
 } from "@/lib/queries/event-settings";
 import { resolveEventRow } from "@/lib/queries/resolve-event-desk";
 import { adminEventStatsPath } from "@/lib/routes";
-import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import { getSupabaseAdminOrServer } from "@/lib/supabase/admin-or-server-client";
 
 const MAX_FILE_BYTES = 6 * 1024 * 1024;
 const MAX_ROWS = 10_000;
@@ -31,8 +30,8 @@ export type ImportRegistrationsResult =
   | { ok: false; error: string; errors?: { line: number; message: string }[] };
 
 async function getServerSupabase() {
-  const admin = createSupabaseAdminServerClient();
-  return admin ?? (await createSupabaseServerClient());
+  const { supabase } = await getSupabaseAdminOrServer();
+  return supabase;
 }
 
 export async function importRegistrationsAction(

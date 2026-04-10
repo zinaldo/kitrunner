@@ -3,8 +3,7 @@ import type { EventOperationalMeta } from "@/lib/queries/event-operational-meta"
 import { fetchEventOperationalMeta } from "@/lib/queries/event-operational-meta";
 import { fetchEventStats } from "@/lib/queries/event-stats";
 import { resolveEventRow } from "@/lib/queries/resolve-event-desk";
-import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import { getSupabaseAdminOrServer } from "@/lib/supabase/admin-or-server-client";
 
 type AdminStatsPageProps = {
   params: Promise<{ eventId: string }>;
@@ -24,8 +23,7 @@ export default async function AdminStatsPage({ params }: AdminStatsPageProps) {
   let eventMeta: EventOperationalMeta | null = null;
 
   try {
-    const admin = createSupabaseAdminServerClient();
-    const supabase = admin ?? (await createSupabaseServerClient());
+    const { supabase } = await getSupabaseAdminOrServer();
     const event = await resolveEventRow(supabase, eventParam);
     if (!event) {
       loadError = "Evento não encontrado.";

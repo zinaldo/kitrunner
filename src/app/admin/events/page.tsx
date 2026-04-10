@@ -7,16 +7,14 @@ import {
   eventRouteKey,
 } from "@/lib/routes";
 import { fetchAdminEventsList } from "@/lib/queries/list-events";
-import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import { getSupabaseAdminOrServer } from "@/lib/supabase/admin-or-server-client";
 
 export default async function AdminEventsPage() {
   let rows: Awaited<ReturnType<typeof fetchAdminEventsList>> = [];
   let loadError: string | null = null;
 
   try {
-    const admin = createSupabaseAdminServerClient();
-    const supabase = admin ?? (await createSupabaseServerClient());
+    const { supabase } = await getSupabaseAdminOrServer();
     rows = await fetchAdminEventsList(supabase);
   } catch (e) {
     loadError =

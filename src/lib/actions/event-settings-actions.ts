@@ -12,16 +12,15 @@ import { slugifyPt } from "@/lib/slugify";
 import type { EventStatus } from "@/lib/supabase/types";
 import { findAuthUserIdByEmail } from "@/lib/auth/admin-find-user-by-email";
 import { organizerActionGate } from "@/lib/auth/require-organizer";
-import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
+import { getSupabaseAdminOrServer } from "@/lib/supabase/admin-or-server-client";
 import { isMissingSchemaEntityError } from "@/lib/supabase/column-error";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 async function getServerSupabase() {
-  const admin = createSupabaseAdminServerClient();
-  return admin ?? (await createSupabaseServerClient());
+  const { supabase } = await getSupabaseAdminOrServer();
+  return supabase;
 }
 
 function isUuid(value: string): boolean {
@@ -588,7 +587,7 @@ export async function addEventStaffAction(input: {
   const organizerGate = await organizerActionGate();
   if (!organizerGate.ok) return organizerGate;
 
-  const admin = createSupabaseAdminServerClient();
+  const { admin, supabase } = await getSupabaseAdminOrServer();
   if (!admin) {
     return {
       ok: false,
@@ -605,7 +604,6 @@ export async function addEventStaffAction(input: {
   const userId = resolved.userId;
 
   try {
-    const supabase = await getServerSupabase();
     const { data: ev } = await supabase
       .from("events")
       .select("slug, id")

@@ -8,8 +8,7 @@ import {
 } from "@/lib/queries/event-settings";
 import { resolveEventRow } from "@/lib/queries/resolve-event-desk";
 import { adminEventsPath, adminEventSettingsPath } from "@/lib/routes";
-import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import { getSupabaseAdminOrServer } from "@/lib/supabase/admin-or-server-client";
 import { defaultImportRulesState } from "@/lib/event-import-rules";
 
 type AdminImportPageProps = {
@@ -26,8 +25,7 @@ export default async function AdminImportPage({ params }: AdminImportPageProps) 
   let kitTypes: { id: string; name: string }[] = [];
 
   try {
-    const admin = createSupabaseAdminServerClient();
-    const supabase = admin ?? (await createSupabaseServerClient());
+    const { supabase } = await getSupabaseAdminOrServer();
     const resolved = await resolveEventRow(supabase, eventParam);
     if (!resolved) {
       loadError = "Evento não encontrado.";

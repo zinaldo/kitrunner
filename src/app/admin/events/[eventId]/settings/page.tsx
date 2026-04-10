@@ -11,8 +11,7 @@ import {
 } from "@/lib/queries/event-settings";
 import { resolveEventRow } from "@/lib/queries/resolve-event-desk";
 import { adminNewEventPath } from "@/lib/routes";
-import { createSupabaseAdminServerClient } from "@/lib/supabase/admin-server-client";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import { getSupabaseAdminOrServer } from "@/lib/supabase/admin-or-server-client";
 import { redirect } from "next/navigation";
 
 type AdminEventSettingsPageProps = {
@@ -38,8 +37,7 @@ export default async function AdminEventSettingsPage({
   let importRules = defaultImportRulesState();
 
   try {
-    const admin = createSupabaseAdminServerClient();
-    const supabase = admin ?? (await createSupabaseServerClient());
+    const { supabase, admin } = await getSupabaseAdminOrServer();
     const resolved = await resolveEventRow(supabase, eventParam);
     if (!resolved) {
       loadError = "Evento não encontrado.";
