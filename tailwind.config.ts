@@ -15,6 +15,18 @@ const config: Config = {
           "system-ui",
           "sans-serif",
         ],
+        "uptempo-headline": [
+          "var(--font-uptempo-headline)",
+          "Lexend",
+          "ui-sans-serif",
+          "sans-serif",
+        ],
+        "uptempo-body": [
+          "var(--font-uptempo-body)",
+          '"Plus Jakarta Sans"',
+          "ui-sans-serif",
+          "sans-serif",
+        ],
       },
       borderRadius: {
         stitch: "var(--stitch-radius)",
@@ -22,6 +34,9 @@ const config: Config = {
         "candy-pill": "9999px",
       },
       boxShadow: {
+        "uptempo-card": "0 12px 40px rgba(27, 19, 69, 0.06)",
+        "uptempo-cta": "0 8px 24px rgba(0, 101, 140, 0.25)",
+        "uptempo-cta-hover": "0 12px 32px rgba(0, 101, 140, 0.35)",
         "stitch-card":
           "0 10px 40px rgb(15 23 42 / 0.09), 0 2px 10px rgb(13 148 136 / 0.07)",
         "stitch-card-soft":
@@ -36,6 +51,36 @@ const config: Config = {
           "0 4px 16px rgb(0 150 204 / 0.18), 0 2px 6px rgb(124 82 170 / 0.06)",
       },
       colors: {
+        /** Stitch uptempo_dynamic / login_sign_in — Material-style semantic tokens */
+        uptempo: {
+          background: "#fdf8ff",
+          surface: "#fdf8ff",
+          primary: "#00658c",
+          "primary-container": "#00b0f0",
+          secondary: "#5f588d",
+          "secondary-container": "#cbc2fe",
+          "on-secondary-container": "#554e82",
+          tertiary: "#006a63",
+          "tertiary-container": "#00b8ac",
+          "on-background": "#1b1345",
+          "on-surface": "#1b1345",
+          "on-surface-variant": "#3e4850",
+          "on-primary": "#ffffff",
+          "on-primary-container": "#003f59",
+          "on-secondary": "#ffffff",
+          "on-tertiary-container": "#00423d",
+          outline: "#6e7881",
+          "outline-variant": "#bdc8d1",
+          "surface-container": "#f1ebff",
+          "surface-container-low": "#f7f1ff",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#ebe5ff",
+          "surface-container-highest": "#e5deff",
+          error: "#ba1a1a",
+          "error-container": "#ffdad6",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+        },
         stitch: {
           canvas: "rgb(var(--stitch-canvas) / <alpha-value>)",
           surface: "rgb(var(--stitch-surface) / <alpha-value>)",

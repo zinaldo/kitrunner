@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | KitRunner</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#80d0ff",
+                        "surface": "#fdf8ff",
+                        "primary": "#00658c",
+                        "surface-container-high": "#ebe5ff",
+                        "secondary-container": "#cbc2fe",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf8ff",
+                        "on-background": "#1b1345",
+                        "secondary-fixed-dim": "#c8bffc",
+                        "inverse-on-surface": "#f4eeff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#006a63",
+                        "on-error": "#ffffff",
+                        "primary-container": "#00b0f0",
+                        "primary-fixed": "#c5e7ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#47fbeb",
+                        "on-surface-variant": "#3e4850",
+                        "surface-bright": "#fdf8ff",
+                        "secondary": "#5f588d",
+                        "surface-variant": "#e5deff",
+                        "on-primary-fixed-variant": "#004c6a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#474073",
+                        "surface-container-low": "#f7f1ff",
+                        "on-tertiary-container": "#00423d",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcd5ff",
+                        "tertiary-fixed-dim": "#00decf",
+                        "tertiary-container": "#00b8ac",
+                        "inverse-surface": "#30295b",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary-fixed": "#001e2d",
+                        "surface-container-highest": "#e5deff",
+                        "on-tertiary-fixed": "#00201d",
+                        "surface-tint": "#00658c",
+                        "on-surface": "#1b1345",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "on-secondary-fixed": "#1b1345",
+                        "surface-container": "#f1ebff",
+                        "on-primary-container": "#003f59",
+                        "secondary-fixed": "#e5deff",
+                        "outline": "#6e7881",
+                        "on-secondary-container": "#554e82",
+                        "primary-fixed-dim": "#80d0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-bg {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 176, 240, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(95, 88, 141, 0.08) 0px, transparent 50%);
+        }
+        .asymmetric-grid {
+            mask-image: linear-gradient(to bottom, black, transparent);
+            background-image: radial-gradient(#00658c 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Suppressed Navigation Shell for Login Flow -->
+<main class="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+<!-- Kinetic Architect Background Patterns -->
+<div class="absolute inset-0 kinetic-bg pointer-events-none"></div>
+<div class="absolute inset-0 asymmetric-grid pointer-events-none"></div>
+<div class="w-full max-w-[1200px] grid lg:grid-cols-12 items-center gap-12 relative z-10">
+<!-- Branding/Hero Section (Asymmetric Editorial Style) -->
+<div class="hidden lg:flex lg:col-span-7 flex-col space-y-8 pr-12">
+<div class="space-y-2">
+<span class="font-headline font-bold text-primary uppercase tracking-[0.2em] text-sm">Athletic Intelligence</span>
+<h1 class="font-headline text-6xl xl:text-8xl font-black text-on-background leading-[0.9] tracking-tighter">
+                        KitRunner <br/>
+<span class="text-secondary opacity-80">Manager</span>
+</h1>
+</div>
+<p class="max-w-md text-lg text-on-surface-variant leading-relaxed">
+                    Precision monitoring for elite athletics. Access your dashboard and orchestrate the kinetic performance of your team with editorial clarity.
+                </p>
+<div class="flex gap-4 items-center">
+<div class="flex -space-x-3">
+<img class="w-12 h-12 rounded-full border-4 border-surface shadow-sm object-cover" data-alt="professional sports coach looking ahead with focus and determination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiKKk63e1E8HzRaEVpSOszv3FfgS1GQayvGwqBhoKdBXtcGPLWfzZ_bxPbZe0n2Qh78z-fLhrb7dMOAeJ1cFKd1sYR2uOurgAbNW8gDRPIxzRxxRUYQvXbMdguFNosz9m7-8CRu3N3YC5lTCuHIXip5ypv6AASRszhgNr6-0lp9bVJY5wCiHPQMRrW7RqV0dxsDRMJueeYdLzkl2NMMOG4fptsdUnVIIa8IrM7WZjvHuxt8-c_1dDTkN-ozLFDG5nK_VObYOSADlS_"/>
+<img class="w-12 h-12 rounded-full border-4 border-surface shadow-sm object-cover" data-alt="young athlete in training gear resting after a high-intensity run" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTjIza5zei-Gld02l-Gw5SlCtpObK76-WPsIPaNmfa8faSw1r9l-EJ6cKTU484XOG0gbFRBZ4-3uiWSNTnqClb2QIEXvObauYcPNU1TXwaP6dMMzSsw5OywfcMu1sfZ45g69AfCnagilDmEyuwR8NS7WvxnNJkqWWqMSvZS29FcryelOkgAtCsrZpaHMZlbj_uLJ7nd9ofLIExSoqIuSMsnE4STgCBuL3JqOcfGof4QPyOd-B_qDePOe2Z2rdlDgGWVjuIaF9KRfUJ"/>
+<img class="w-12 h-12 rounded-full border-4 border-surface shadow-sm object-cover" data-alt="female sports analyst examining data on a digital tablet in a stadium" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7RdGz3cSCjjHXYEnKlo0sTqr9bYe_PBrQIm8e5D2JXUjN6K3BBU_Jn0DnlpoGvgoh-wOQUbN_suEnDV_K6ONhaFIl0TLgMMbWhLAFpfBNcLRjbgHU9x84EoqRXd1XVdjJZg0nKF7VvxMYQIkG_Vx6ZRDJZYZ8nHY45v5vFiEKH5wdt1qqHOY6wgG6Nt0G83Lx4Xnptj_Z8nk8A59GDmk3x33vAN6RptNfFZOxFqox6tprJOPAB0nlLpJdddlOTWwRdnh8hlarUb4D"/>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">+200 elite coaches joined this week</span>
+</div>
+</div>
+<!-- Login Form Section -->
+<div class="lg:col-span-5 w-full">
+<div class="bg-surface-container-lowest rounded-[2rem] p-8 md:p-12 shadow-[0_12px_40px_rgba(27,19,69,0.06)] relative overflow-hidden group border border-outline-variant/10">
+<!-- Subtle Glassmorphism Accents -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-bl-[5rem] -mr-8 -mt-8 blur-2xl"></div>
+<div class="relative z-10">
+<header class="mb-10">
+<!-- Brand Anchor -->
+<div class="lg:hidden mb-8">
+<span class="font-headline text-3xl font-black text-primary tracking-tighter">KitRunner</span>
+</div>
+<h2 class="font-headline text-3xl font-bold text-on-background tracking-tight">Welcome Back</h2>
+<p class="text-on-surface-variant mt-2">Enter your credentials to access the platform</p>
+</header>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface uppercase tracking-wider ml-1" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all duration-300 placeholder:text-outline/50" id="email" name="email" placeholder="name@organization.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block text-sm font-bold text-on-surface uppercase tracking-wider" for="password">Password</label>
+<a class="text-xs font-bold text-primary hover:text-primary-container transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all duration-300 placeholder:text-outline/50" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-primary" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center space-x-3 px-1">
+<div class="relative flex items-center">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 bg-surface-container-low cursor-pointer" id="remember" type="checkbox"/>
+</div>
+<label class="text-sm font-medium text-on-surface-variant cursor-pointer select-none" for="remember">Remember this device for 30 days</label>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold rounded-full shadow-[0_8px_24px_rgba(0,101,140,0.25)] hover:shadow-[0_12px_32px_rgba(0,101,140,0.35)] transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200" type="submit">
+                                Sign In to Dashboard
+                            </button>
+</form>
+<!-- Secondary Actions -->
+<footer class="mt-10 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-on-surface-variant text-sm">
+                                Don't have an administrative account? <br class="md:hidden"/>
+<a class="font-bold text-secondary hover:text-primary transition-colors" href="#">Contact System Administrator</a>
+</p>
+</footer>
+</div>
+</div>
+<!-- Subtle Decorative Element -->
+<div class="mt-8 flex justify-between items-center px-4 opacity-40">
+<div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-outline-variant"></div>
+<div class="mx-4 text-[10px] font-headline font-black uppercase tracking-[0.3em] text-outline">Uptempo Core v4.2</div>
+<div class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-outline-variant"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Confirmation Splash (Suppressed/Hidden) -->
+<div class="hidden fixed inset-0 bg-background/95 backdrop-blur-md z-[100] flex items-center justify-center p-6 text-center" id="success-overlay">
+<div class="max-w-sm space-y-6">
+<div class="w-24 h-24 bg-tertiary-container rounded-full mx-auto flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline text-3xl font-black text-on-background">Authenticated</h3>
+<p class="text-on-surface-variant">Syncing with performance servers...</p>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3 animate-pulse"></div>
+</div>
+</div>
+</div>
+</body></html>

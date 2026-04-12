@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Sign Up | KitRunner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#80d0ff",
+                        "surface": "#fdf8ff",
+                        "primary": "#00658c",
+                        "surface-container-high": "#ebe5ff",
+                        "secondary-container": "#cbc2fe",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf8ff",
+                        "on-background": "#1b1345",
+                        "secondary-fixed-dim": "#c8bffc",
+                        "inverse-on-surface": "#f4eeff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#006a63",
+                        "on-error": "#ffffff",
+                        "primary-container": "#00b0f0",
+                        "primary-fixed": "#c5e7ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#47fbeb",
+                        "on-surface-variant": "#3e4850",
+                        "surface-bright": "#fdf8ff",
+                        "secondary": "#5f588d",
+                        "surface-variant": "#e5deff",
+                        "on-primary-fixed-variant": "#004c6a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#474073",
+                        "surface-container-low": "#f7f1ff",
+                        "on-tertiary-container": "#00423d",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcd5ff",
+                        "tertiary-fixed-dim": "#00decf",
+                        "tertiary-container": "#00b8ac",
+                        "inverse-surface": "#30295b",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary-fixed": "#001e2d",
+                        "surface-container-highest": "#e5deff",
+                        "on-tertiary-fixed": "#00201d",
+                        "surface-tint": "#00658c",
+                        "on-surface": "#1b1345",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "on-secondary-fixed": "#1b1345",
+                        "surface-container": "#f1ebff",
+                        "on-primary-container": "#003f59",
+                        "secondary-fixed": "#e5deff",
+                        "outline": "#6e7881",
+                        "on-secondary-container": "#554e82",
+                        "primary-fixed-dim": "#80d0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, .brand-logo { font-family: 'Lexend', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center p-4 md:p-8">
+<div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-full bg-surface-container-low shadow-2xl">
+<div class="hidden lg:flex lg:col-span-5 relative flex-col justify-between p-12 text-white overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Athletic runners at the starting line of a marathon with vibrant morning sunlight and high contrast shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-Kozk-5rCUpqEhFyA-EjctV0cJYcp0Rh7fCjvOgyxsYOLVSO-swL3TQETOhu2tn-XqGXZ9dpzq0uaAgsBPDgA3P6SkWbGWW0s1leZ6xv7fUUyn89dHIr40eMwrn6TvO33TtO0CuA4ZR0jeEwI6Ne9PsGNWiGscncSndCaA3-JNZzeMOUxE-qNU9b3FyNOEBydF8xkKXDkNx5fzAhVOp7PK_CFvwKv0siG9MYdbxiGwuTp7SGF83MmKIhlaIxyYMK4KZ4ORlnn_Xhd"/>
+<div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/90 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10">
+<div class="brand-logo text-3xl font-black tracking-tighter mb-2">KitRunner</div>
+<div class="h-1 w-12 bg-primary-container rounded-full"></div>
+</div>
+<div class="relative z-10">
+<h2 class="text-4xl font-bold leading-tight mb-6 tracking-tight">Fueling the next generation of elite sports logistics.</h2>
+<p class="text-white/80 text-lg font-medium max-w-md">Join our global network of staff managing the world's most prestigious athletic events.</p>
+</div>
+<div class="relative z-10 flex gap-4 items-center">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="Portrait of a male sports coordinator in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6iq-qyetbFh7ubiCjUh3dqF3RLAZSuDSs-2Y5fSgJs209laxKoIr-Dh3Hyv5onnZT7Mu3_m1wL0sRwD7SEHOnVk42tkQPyBnfPS6VxB6XixTyrmctyT8Aq9yU0seVCukpeTF-2zPFYNkdtwcl1lJuaazA2thy0eMT0iynHJDFR-tA18teSPN-sbuyhEh9qM6h9fDq-aOFt2KSwtHFtPeyhlpSTGXmcrMGmvUypz1XKhjDBfFeMZW07SpbXpS2B4IsZd4nLLDDpbSC"/>
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="Portrait of a female event manager smiling in sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcZUvXdQ3Nhz4k7fmHEnaRcLWwCr0GltEAR6hAkG1HGihKtRyyHOt9QOt5GYnCBU2KanV8VN-F41L44Xu922tQykLnXM65NXY8EsTTG8Gt4T4ncbRyHnV_bBcAMJjIyAF9nSZWDWlxnKsEJZ-MFeJeFUMj83hTVkvT_DQb-bSFqOVeuO0a5skx7pY-OcZfPx0BlKOvHHw1Qy9MuIMQDsCZwP-tyFlVIAdcO17_l47rDl42X366EsbnO742r2q_Z_gcLx1o5Ql6Rvk_"/>
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="Portrait of a young male staff member with blurred stadium background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIss2AgDYxSa1xlj3pEyJB6SY7FqwB4O26Su0pXRVgQDugOzJGdy6Qm7qwJmMGxoXqofsB22UP5UyDZquFsORyq782yYaybrkLOtiXTiU_e7qpMuagAHtNu2mFi6MmRqML8YmGCT5sMFKMpSllCzMMllQdfYNsYu2hWcFxF-rVP_saStHN3L7rG8S1wKDx4RMOeFm3ITxTSnZKKH8N4Uah6JHsu2A4dmAFF0815Mzv57y6dNPy8YQ_gzwiTIK04gD40VMGsEiNtBS5"/>
+</div>
+<span class="text-sm font-semibold tracking-wide">Joined by 2.4k+ staff this month</span>
+</div>
+</div>
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-16 flex flex-col justify-center">
+<div class="lg:hidden mb-8">
+<div class="brand-logo text-2xl font-black text-primary tracking-tighter">KitRunner</div>
+</div>
+<div class="mb-10">
+<h1 class="text-3xl md:text-4xl font-black text-secondary tracking-tight mb-2">Staff Registration</h1>
+<p class="text-on-surface-variant font-medium">Create your administrative credentials to begin.</p>
+</div>
+<form class="space-y-6">
+<div class="space-y-1">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Full Name</label>
+<input class="w-full px-6 py-4 rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all placeholder:text-outline/60 text-on-surface font-medium" placeholder="Alex Thompson" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Email Address</label>
+<input class="w-full px-6 py-4 rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all placeholder:text-outline/60 text-on-surface font-medium" placeholder="alex.t@kitrunner.io" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Assigned Role</label>
+<div class="relative">
+<select class="w-full appearance-none px-6 py-4 rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all text-on-surface font-medium">
+<option disabled="" selected="" value="">Select your role</option>
+<option>Event Coordinator</option>
+<option>Kit Delivery</option>
+<option>Support</option>
+</select>
+<div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Password</label>
+<div class="relative">
+<input class="w-full px-6 py-4 rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all placeholder:text-outline/60 text-on-surface font-medium" placeholder="••••••••" type="password"/>
+<button class="absolute right-6 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Confirm Password</label>
+<input class="w-full px-6 py-4 rounded-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all placeholder:text-outline/60 text-on-surface font-medium" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full py-5 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-200">
+                        Create Account
+                    </button>
+</div>
+</form>
+<div class="mt-8 pt-8 border-t border-outline-variant/15 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-sm font-medium">
+                    Already part of the team? <a class="text-primary font-bold hover:underline" href="#">Log in here</a>
+</p>
+<div class="flex gap-6">
+<a class="text-outline text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-outline text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</div>
+</div>
+</body></html>

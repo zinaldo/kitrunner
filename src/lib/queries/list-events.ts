@@ -10,6 +10,7 @@ export type AdminEventListRow = {
   id: string;
   name: string;
   slug: string | null;
+  event_date: string | null;
   status: Database["public"]["Tables"]["events"]["Row"]["status"];
   registrationCount: number | null;
 };
@@ -33,7 +34,7 @@ export async function fetchAdminEventsList(
 ): Promise<AdminEventListRow[]> {
   const withCounts = await supabase
     .from("events")
-    .select("id, name, slug, status, registrations(count)")
+    .select("id, name, slug, event_date, status, registrations(count)")
     .order("name", { ascending: true });
 
   if (!withCounts.error && withCounts.data) {
@@ -41,6 +42,7 @@ export async function fetchAdminEventsList(
       id: row.id,
       name: row.name,
       slug: row.slug,
+      event_date: row.event_date,
       status: row.status,
       registrationCount: mapRegistrationCount(row.registrations),
     }));
@@ -48,7 +50,7 @@ export async function fetchAdminEventsList(
 
   const basic = await supabase
     .from("events")
-    .select("id, name, slug, status")
+    .select("id, name, slug, event_date, status")
     .order("name", { ascending: true });
 
   if (basic.error) throw basic.error;
@@ -57,6 +59,7 @@ export async function fetchAdminEventsList(
     id: row.id,
     name: row.name,
     slug: row.slug,
+    event_date: row.event_date,
     status: row.status,
     registrationCount: null,
   }));

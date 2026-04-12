@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Lexend, Plus_Jakarta_Sans } from "next/font/google";
-import { UptempoLoginShell } from "@/components/auth/uptempo-login-shell";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -16,16 +15,16 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export default function LoginLayout({
+export default function StaffPortalStitchLayout({
   children,
 }: {
   children: ReactNode;
 }) {
   return (
     <div
-      className={`${lexend.variable} ${plusJakarta.variable} min-h-screen bg-uptempo-background font-uptempo-body text-uptempo-on-background antialiased`}
+      className={`staff-events-stitch ${lexend.variable} ${plusJakarta.variable} min-h-dvh overflow-x-hidden bg-[#fdf8ff] font-uptempo-body text-[#1b1345] antialiased`}
     >
-      <UptempoLoginShell>{children}</UptempoLoginShell>
+      {children}
     </div>
   );
 }

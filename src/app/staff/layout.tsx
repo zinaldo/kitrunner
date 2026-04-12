@@ -1,19 +1,12 @@
-import { StaffShell } from "@/components/staff/staff-shell";
-import { userCanAccessAdmin } from "@/lib/auth/app-role";
-import { createSupabaseServerClient } from "@/lib/supabase/server-client";
-
-export default async function StaffLayout({
+/**
+ * Layout raiz de `/staff`: sem shell visual aqui.
+ * - `(portal)/events` → portal Stitch (lista de eventos).
+ * - `(workspace)/events/.../desk/...` → `StaffShell` Candy no layout filho.
+ */
+export default function StaffLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = await createSupabaseServerClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  const showAdministrationLink = userCanAccessAdmin(user);
-
-  return (
-    <StaffShell showAdministrationLink={showAdministrationLink}>{children}</StaffShell>
-  );
+  return children;
 }

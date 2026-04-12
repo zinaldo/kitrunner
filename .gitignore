@@ -37,3 +37,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Windows alternate data stream markers (e.g. from WSL/Explorer)
+*Zone.Identifier

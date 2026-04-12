@@ -1,7 +1,12 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 import { userIsStaffRole } from "@/lib/auth/app-role";
-import { loginPath, staffEventsPath, staffSignUpPath } from "@/lib/routes";
+import {
+  adminEventsPath,
+  loginPath,
+  staffEventsPath,
+  staffSignUpPath,
+} from "@/lib/routes";
 
 type CookieToSet = {
   name: string;
@@ -90,8 +95,16 @@ export async function updateSession(request: NextRequest) {
     return response;
   }
 
-  if (path === "/" && !user) {
-    return redirectToLogin(request);
+  if (path === "/") {
+    if (!user) {
+      return redirectToLogin(request);
+    }
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.search = "";
+    redirectUrl.pathname = userIsStaffRole(user)
+      ? staffEventsPath()
+      : adminEventsPath();
+    return NextResponse.redirect(redirectUrl);
   }
 
   if (path.startsWith("/admin")) {

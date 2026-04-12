@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manual Participant Import | KitRunner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#80d0ff",
+                        "surface": "#fdf8ff",
+                        "primary": "#00658c",
+                        "surface-container-high": "#ebe5ff",
+                        "secondary-container": "#cbc2fe",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf8ff",
+                        "on-background": "#1b1345",
+                        "secondary-fixed-dim": "#c8bffc",
+                        "inverse-on-surface": "#f4eeff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#006a63",
+                        "on-error": "#ffffff",
+                        "primary-container": "#00b0f0",
+                        "primary-fixed": "#c5e7ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#47fbeb",
+                        "on-surface-variant": "#3e4850",
+                        "surface-bright": "#fdf8ff",
+                        "secondary": "#5f588d",
+                        "surface-variant": "#e5deff",
+                        "on-primary-fixed-variant": "#004c6a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#474073",
+                        "surface-container-low": "#f7f1ff",
+                        "on-tertiary-container": "#00423d",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcd5ff",
+                        "tertiary-fixed-dim": "#00decf",
+                        "tertiary-container": "#00b8ac",
+                        "inverse-surface": "#30295b",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary-fixed": "#001e2d",
+                        "surface-container-highest": "#e5deff",
+                        "on-tertiary-fixed": "#00201d",
+                        "surface-tint": "#00658c",
+                        "on-surface": "#1b1345",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "on-secondary-fixed": "#1b1345",
+                        "surface-container": "#f1ebff",
+                        "on-primary-container": "#003f59",
+                        "secondary-fixed": "#e5deff",
+                        "outline": "#6e7881",
+                        "on-secondary-container": "#554e82",
+                        "primary-fixed-dim": "#80d0ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Lexend', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 flex flex-col py-6 z-40">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold text-indigo-900 dark:text-indigo-50 font-headline">Event Manager</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary opacity-70">Elite Edition</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-indigo-900/70 dark:text-indigo-100/70 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl mx-2 px-4 py-3 mb-1 flex items-center gap-3 transition-transform duration-200 hover:translate-x-1 font-headline font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="bg-indigo-100 dark:bg-indigo-900/40 text-indigo-900 dark:text-indigo-100 rounded-xl mx-2 px-4 py-3 mb-1 flex items-center gap-3 transition-transform duration-200 hover:translate-x-1 font-headline font-semibold" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Participants</span>
+</a>
+<a class="text-indigo-900/70 dark:text-indigo-100/70 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl mx-2 px-4 py-3 mb-1 flex items-center gap-3 transition-transform duration-200 hover:translate-x-1 font-headline font-semibold" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span>Check-in</span>
+</a>
+<a class="text-indigo-900/70 dark:text-indigo-100/70 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl mx-2 px-4 py-3 mb-1 flex items-center gap-3 transition-transform duration-200 hover:translate-x-1 font-headline font-semibold" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span>Staff</span>
+</a>
+</nav>
+<div class="px-2 pt-6 mt-6 border-t border-indigo-900/5">
+<a class="text-indigo-900/70 dark:text-indigo-100/70 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl mx-2 px-4 py-3 mb-1 flex items-center gap-3 transition-transform duration-200 hover:translate-x-1 font-headline font-semibold" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-indigo-900/70 dark:text-indigo-100/70 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl mx-2 px-4 py-3 mb-1 flex items-center gap-3 transition-transform duration-200 hover:translate-x-1 font-headline font-semibold" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<main class="ml-64 min-h-screen">
+<!-- Header Section -->
+<header class="px-12 pt-12 pb-8 sticky top-0 bg-surface/80 backdrop-blur-xl z-30">
+<div class="flex items-end justify-between">
+<div>
+<nav class="flex gap-2 mb-2">
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Import</span>
+<span class="text-xs font-bold text-outline-variant tracking-widest uppercase">/</span>
+<span class="text-xs font-bold text-outline-variant tracking-widest uppercase">Manual Entry</span>
+</nav>
+<h2 class="text-5xl font-black text-secondary tracking-tighter leading-none">Participant <br/><span class="text-primary-container">Ingestion</span></h2>
+</div>
+<div class="flex gap-4 pb-1">
+<button class="px-8 py-4 rounded-full font-bold text-secondary bg-surface-container-high hover:bg-surface-container-highest transition-all duration-200 active:scale-95">
+                        Cancel
+                    </button>
+<button class="px-10 py-4 rounded-full font-bold text-white bg-gradient-to-r from-primary to-primary-container shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-300">
+                        Process Data
+                    </button>
+</div>
+</div>
+</header>
+<!-- Dynamic Content Canvas -->
+<div class="px-12 pb-24 space-y-12">
+<!-- Bento Layout Import Options -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Large CSV Ingestor (Editorial Style) -->
+<div class="col-span-8 group relative bg-surface-container rounded-full p-1 overflow-hidden">
+<div class="bg-surface-container-lowest rounded-[2.5rem] p-10 h-full">
+<div class="flex items-start justify-between mb-8">
+<div>
+<h3 class="text-2xl font-extrabold text-secondary tracking-tight mb-2">Raw Data Bulk Import</h3>
+<p class="text-on-surface-variant max-w-md">Paste your CSV strings or raw spreadsheet data directly. Our engine will map headers automatically.</p>
+</div>
+<div class="bg-primary-fixed p-3 rounded-2xl">
+<span class="material-symbols-outlined text-on-primary-fixed text-3xl">data_object</span>
+</div>
+</div>
+<div class="relative">
+<textarea class="w-full h-80 bg-surface-container-low border-0 rounded-3xl p-8 font-mono text-sm text-secondary focus:ring-4 focus:ring-primary/20 focus:bg-white transition-all duration-300 placeholder:text-outline-variant/50" placeholder="bib_number, name, category, distance...
+104, Michael Rossi, Elite, 42k
+105, Sarah Jenkins, Amateur, 21k"></textarea>
+<div class="absolute bottom-4 right-4 flex items-center gap-2 px-4 py-2 bg-surface/50 backdrop-blur rounded-full text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-sm">content_paste</span>
+                                Detecting Format...
+                            </div>
+</div>
+</div>
+</div>
+<!-- Guidance & Status Card -->
+<div class="col-span-4 flex flex-col gap-8">
+<div class="bg-secondary text-white rounded-[2.5rem] p-8 flex-1 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-xl font-bold mb-4">Required Headers</h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container">check_circle</span>
+<span class="font-medium">bib_number</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container">check_circle</span>
+<span class="font-medium">full_name</span>
+</li>
+<li class="flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+<span class="font-medium">gender_label</span>
+</li>
+<li class="flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+<span class="font-medium">category_code</span>
+</li>
+</ul>
+</div>
+<div class="absolute -bottom-10 -right-10 opacity-10">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+</div>
+<div class="bg-primary-container text-white rounded-[2.5rem] p-8 flex flex-col justify-between">
+<p class="font-bold text-xs uppercase tracking-widest opacity-80 mb-4">Live Validation</p>
+<div class="flex items-baseline gap-2">
+<span class="text-6xl font-black tracking-tighter">0</span>
+<span class="text-xl font-bold opacity-80 italic">Ready</span>
+</div>
+<p class="mt-4 text-sm font-medium">No valid rows detected yet. Paste data to begin live stream parsing.</p>
+</div>
+</div>
+</div>
+<!-- Single Individual Entry Section -->
+<section class="mt-16">
+<div class="flex items-center gap-6 mb-10">
+<div class="h-[2px] flex-1 bg-surface-container-highest"></div>
+<h3 class="text-sm font-black uppercase tracking-[0.3em] text-outline whitespace-nowrap">Or Add Individual Entry</h3>
+<div class="h-[2px] flex-1 bg-surface-container-highest"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-[3rem] p-12 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8">
+<!-- Form Fields with "Ghost Border" -->
+<div class="col-span-2">
+<label class="block text-xs font-bold text-primary uppercase tracking-widest mb-3 ml-2">Full Legal Name</label>
+<input class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-5 text-on-surface focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all font-medium text-lg placeholder:opacity-30" placeholder="e.g. Jonathan " type="text"/>
+</div>
+<div class="col-span-1">
+<label class="block text-xs font-bold text-primary uppercase tracking-widest mb-3 ml-2">Bib Number</label>
+<input class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-5 text-on-surface focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all font-black text-2xl placeholder:opacity-30" placeholder="000" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="block text-xs font-bold text-primary uppercase tracking-widest mb-3 ml-2">Distance</label>
+<select class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-5 text-on-surface focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all font-bold appearance-none">
+<option>Select Course</option>
+<option>Ultra Trail (100k)</option>
+<option>Mountain Marathon (42k)</option>
+<option>Sky Run (21k)</option>
+<option>Short Track (10k)</option>
+</select>
+</div>
+<div class="col-span-1">
+<label class="block text-xs font-bold text-primary uppercase tracking-widest mb-3 ml-2">Category</label>
+<select class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-5 text-on-surface focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all font-bold appearance-none">
+<option>Select Age Group</option>
+<option>Elite Male</option>
+<option>Elite Female</option>
+<option>U23 Mixed</option>
+<option>Masters 40+</option>
+<option>Masters 50+</option>
+</select>
+</div>
+<div class="col-span-1">
+<label class="block text-xs font-bold text-primary uppercase tracking-widest mb-3 ml-2">Gender</label>
+<div class="grid grid-cols-2 gap-4">
+<button class="py-5 rounded-2xl bg-primary text-white font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">male</span>
+                                    M
+                                </button>
+<button class="py-5 rounded-2xl bg-surface-container-low text-secondary font-bold hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">female</span>
+                                    F
+                                </button>
+</div>
+</div>
+<div class="col-span-3 flex justify-end mt-4">
+<button class="group flex items-center gap-4 bg-secondary text-white pl-8 pr-3 py-3 rounded-full font-bold hover:bg-secondary/90 transition-all active:scale-95">
+                                Add to Batch List
+                                <div class="bg-white/20 p-3 rounded-full group-hover:rotate-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Ingestion Log -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-2xl font-extrabold text-secondary tracking-tight italic">Draft <span class="text-primary-container">Queue</span></h3>
+<p class="text-sm font-bold text-outline uppercase tracking-widest">3 Entries Ready</p>
+</div>
+<div class="space-y-4">
+<!-- List Item 1 -->
+<div class="flex items-center justify-between p-6 bg-surface-container-low rounded-[2rem] hover:bg-surface-container-highest transition-colors duration-200">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container font-black text-xl">
+                                482
+                            </div>
+<div>
+<h4 class="text-lg font-bold text-secondary">Alessandro Volpe</h4>
+<p class="text-xs font-bold text-primary/70 uppercase tracking-tighter">Sky Run (21k) • Elite Male</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-4 py-1.5 bg-tertiary-container/20 text-on-tertiary-container rounded-full text-xs font-black uppercase tracking-widest">Validated</span>
+<button class="p-2 text-outline-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center justify-between p-6 bg-surface rounded-[2rem] hover:bg-surface-container-highest transition-colors duration-200">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container font-black text-xl">
+                                115
+                            </div>
+<div>
+<h4 class="text-lg font-bold text-secondary">Elena Petrova</h4>
+<p class="text-xs font-bold text-primary/70 uppercase tracking-tighter">Mountain Marathon (42k) • Elite Female</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-4 py-1.5 bg-tertiary-container/20 text-on-tertiary-container rounded-full text-xs font-black uppercase tracking-widest">Validated</span>
+<button class="p-2 text-outline-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Decorative Spacer -->
+<div class="h-4"></div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB - suppressed here as per mandate for task-focused pages, but for manual entry flow we might need it? Mandate says: "suppress the FAB on Settings, Profile, Details, and Transactional screens." This is a Task screen, so suppressing. -->
+</body></html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Race Settings | RacePulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#00201d",
+                        "on-secondary-fixed": "#1b1345",
+                        "outline": "#6e7881",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#5f588d",
+                        "tertiary-fixed-dim": "#00decf",
+                        "outline-variant": "#bdc8d1",
+                        "secondary-fixed-dim": "#c8bffc",
+                        "on-primary-fixed-variant": "#004c6a",
+                        "surface-bright": "#fdf8ff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f1ebff",
+                        "on-primary-fixed": "#001e2d",
+                        "primary-fixed-dim": "#80d0ff",
+                        "on-tertiary-container": "#00423d",
+                        "on-surface": "#1b1345",
+                        "surface-tint": "#00658c",
+                        "surface-dim": "#dcd5ff",
+                        "on-background": "#1b1345",
+                        "primary-fixed": "#c5e7ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#00b0f0",
+                        "on-surface-variant": "#3e4850",
+                        "surface-variant": "#e5deff",
+                        "tertiary-fixed": "#47fbeb",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "secondary-fixed": "#e5deff",
+                        "on-secondary-container": "#554e82",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ebe5ff",
+                        "on-primary-container": "#003f59",
+                        "surface-container-highest": "#e5deff",
+                        "tertiary": "#006a63",
+                        "primary": "#00658c",
+                        "inverse-on-surface": "#f4eeff",
+                        "tertiary-container": "#00b8ac",
+                        "on-secondary-fixed-variant": "#474073",
+                        "secondary-container": "#cbc2fe",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#30295b",
+                        "inverse-primary": "#80d0ff",
+                        "background": "#fdf8ff",
+                        "surface-container-low": "#f7f1ff",
+                        "surface": "#fdf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Lexend"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-8 h-16 bg-slate-50/70 dark:bg-slate-950/70 backdrop-blur-xl z-50 shadow-sm dark:shadow-none">
+<div class="text-2xl font-black tracking-tighter text-sky-700 dark:text-sky-400">RacePulse</div>
+<div class="hidden md:flex items-center space-x-8 font-lexend font-bold tracking-tight text-secondary">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-sky-600 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-sky-600 transition-colors" href="#">Participants</a>
+<a class="text-sky-800 dark:text-sky-300 font-bold border-b-2 border-sky-600 dark:border-sky-400 pb-1" href="#">Race Settings</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-sky-600 transition-colors" href="#">Staff</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all active:opacity-80 scale-95">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-all active:opacity-80 scale-95">settings</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-primary/20">
+<img alt="User profile" data-alt="professional woman in business attire smiling in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxnBU5cjz-wI0ldQJJsE_MdcLAMU8evNjgm1e_aoENnsIQLS-albvYshQGqVQqqWuU_MGZTnQ76MFdlCa4neaznwlXnua3JFfLBGpx5VbE0Q_aBTGQ2asCLBBEtA3qkUuZgW57N9C0DZwHMaM2SviTDugoCbZ6txnUNVaa4iHFylmyy_bE4QwzT4Q1fwMOokuk_QhHFfSJ689Ea07XRTwAGCUXx93NTSNLido6i7GMD-p0WTXxqRO-3O6UJzUC9AorYq3izykn_P-d"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 bg-slate-100 dark:bg-slate-900 p-4 space-y-2 z-40 pt-20">
+<div class="px-2 mb-6">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-weight="fill">rocket_launch</span>
+</div>
+<div>
+<h2 class="font-lexend font-black text-sky-700 text-sm">Elite Racing</h2>
+<p class="text-[10px] uppercase tracking-widest text-slate-500">Admin Portal</p>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-2 rounded-full font-bold text-xs uppercase tracking-widest shadow-md hover:translate-x-1 transition-transform">Create Race</button>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-lexend text-sm">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-lexend text-sm">Participants</span>
+</a>
+<a class="flex items-center space-x-3 p-3 bg-sky-100 dark:bg-sky-900/30 text-sky-900 dark:text-sky-100 rounded-lg font-semibold transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_applications</span>
+<span class="font-lexend text-sm">Race Settings</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-lexend text-sm">Staff</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-lexend text-sm">Inventory</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-lexend text-sm">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 px-4 md:px-8 pb-12">
+<header class="mb-10 max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="inline-block bg-primary-container/20 text-primary font-bold text-xs px-3 py-1 rounded-full mb-3 uppercase tracking-widest">Configuration Lab</span>
+<h1 class="text-4xl md:text-5xl font-headline font-black text-secondary tracking-tighter leading-tight">City Marathon 2024</h1>
+<p class="text-on-surface-variant mt-2 text-lg">Manage logistics, staff, and participant categories for the upcoming season.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 rounded-full bg-surface-container-high text-primary font-bold text-sm uppercase tracking-wider hover:bg-surface-container-highest transition-colors">Discard</button>
+<button class="px-8 py-3 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">Save Configuration</button>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Bento Grid Section Left -->
+<div class="xl:col-span-8 space-y-8">
+<!-- General Info & Modalities (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- General Info -->
+<section class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
+<h3 class="font-headline font-bold text-xl mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span> General Info
+                        </h3>
+<div class="space-y-5 relative z-10">
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Race Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/40 font-medium" type="text" value="City Marathon 2024"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Race Date</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/40 font-medium" type="date" value="2024-11-12"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Kit Delivery Range</label>
+<div class="grid grid-cols-2 gap-3">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-3 py-3 text-sm focus:ring-2 focus:ring-primary/40" type="date" value="2024-11-05"/>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-3 py-3 text-sm focus:ring-2 focus:ring-primary/40" type="date" value="2024-11-10"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Modalities -->
+<section class="bg-surface-container-low p-8 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">distance</span> Modalities
+                            </h3>
+<button class="material-symbols-outlined text-primary-container p-2 rounded-full hover:bg-primary/10 transition-colors">add_circle</button>
+</div>
+<div class="space-y-3">
+<div class="bg-white p-4 rounded-xl flex items-center justify-between group hover:translate-x-1 transition-transform">
+<div class="flex items-center gap-3">
+<div class="w-2 h-10 bg-primary-container rounded-full"></div>
+<div>
+<p class="font-bold text-secondary">5km Fun Run</p>
+<p class="text-xs text-slate-400">Category Code: 05K</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="bg-white p-4 rounded-xl flex items-center justify-between group hover:translate-x-1 transition-transform">
+<div class="flex items-center gap-3">
+<div class="w-2 h-10 bg-primary rounded-full"></div>
+<div>
+<p class="font-bold text-secondary">10km Performance</p>
+<p class="text-xs text-slate-400">Category Code: 10K</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="bg-white p-4 rounded-xl flex items-center justify-between group hover:translate-x-1 transition-transform">
+<div class="flex items-center gap-3">
+<div class="w-2 h-10 bg-secondary rounded-full"></div>
+<div>
+<p class="font-bold text-secondary">Half Marathon</p>
+<p class="text-xs text-slate-400">Category Code: 21K</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Kit & Inventory Management (Editorial Wide Layout) -->
+<section class="bg-surface-container-high p-8 rounded-xl overflow-hidden relative">
+<div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-primary via-primary-container to-tertiary-container"></div>
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-8">
+<div>
+<h3 class="font-headline font-black text-2xl text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">inventory_2</span> Kit Architecture
+                            </h3>
+<p class="text-on-surface-variant text-sm mt-1">Define package contents and manage stock availability per size.</p>
+</div>
+<div class="flex bg-surface-container-lowest p-1 rounded-full">
+<button class="px-6 py-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-wider">Premium Kit</button>
+<button class="px-6 py-2 rounded-full text-slate-500 text-xs font-bold uppercase tracking-wider hover:text-primary transition-colors">Standard Kit</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item: Performance Jersey -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-secondary">Performance Jersey</h4>
+<span class="text-[10px] bg-tertiary-container/10 text-tertiary font-bold px-2 py-1 rounded">In Stock</span>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">Total Stock</p>
+<p class="text-2xl font-black text-primary">500</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">Qty/Participant</p>
+<p class="text-2xl font-black text-secondary">1</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-600 rounded">XS</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-600 rounded">S</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-primary-container/20 text-primary rounded ring-1 ring-primary/30">M</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-600 rounded">L</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-600 rounded">XL</span>
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-600 rounded">XXL</span>
+</div>
+</div>
+</div>
+<!-- Item: RFID Bib -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary-container">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-secondary">RFID Bib</h4>
+<span class="text-[10px] bg-tertiary-container/10 text-tertiary font-bold px-2 py-1 rounded">Active</span>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">Total Stock</p>
+<p class="text-2xl font-black text-primary-container">1200</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">Qty/Participant</p>
+<p class="text-2xl font-black text-secondary">1</p>
+</div>
+</div>
+<p class="text-xs text-slate-400 italic">One size fits all. Universal application.</p>
+</div>
+</div>
+<!-- Item: Nutrition Packet -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-secondary">Nutrition Packet</h4>
+<span class="text-[10px] bg-error-container/10 text-error font-bold px-2 py-1 rounded">Low Stock</span>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">Total Stock</p>
+<p class="text-2xl font-black text-tertiary">250</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400 tracking-tighter">Qty/Participant</p>
+<p class="text-2xl font-black text-secondary">2</p>
+</div>
+</div>
+<button class="w-full mt-2 py-2 border-2 border-dashed border-slate-200 rounded-lg text-[10px] font-bold text-slate-400 hover:border-primary hover:text-primary transition-colors">Add Item Variation</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Section Right -->
+<div class="xl:col-span-4 space-y-8">
+<!-- Staff Access -->
+<section class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+<h3 class="font-headline font-bold text-xl mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">admin_panel_settings</span> Staff Access
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-200">
+<img alt="Staff Member" data-alt="professional man smiling with warm outdoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8H-EELqSEJXu__3zoZr14gkA7ju7TUgxoR6aSQdWxlB82phCEYNnNWPO0lZPqHcigimV8OLJA3CSQw8GTJZuodd4OBQ-9eVbpLrZXg5XZupcrBoB1EAQ5H2JoRqmyKMzg-CbHVrHdtKlPU-rZafj7N-CW71FvIZCj9J0zluGgygk-vjji8_AagT-Sb_rbfTMXeSG4FIOVzZG4R80vL3SsCf-qhhoDDZkT9zyZmpHzOlPqE3vTQbhiAFYJyh3G2zBaaOViVOcR8HI1"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-secondary leading-tight">Marcus Thorne</p>
+<p class="text-[11px] text-primary font-medium">Race Director</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-200">
+<img alt="Staff Member" data-alt="woman executive with a neutral background professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmkeRLyWVBEliC5rgB1CxjErMgS0iS5Sxw_XPCdlAoPT_wb74GGrRb2RLClHru9qH3gbqa2Jks6sItm0ki2EgvdxbmW_9HxTL6YZxg2mlBZPJEOf0tA1pARCS5XZVVroYAYkiEi_Koh3eg5a3chMlTSIeZLNbFuZ1926ArKtdH2M8O2VDWz4ea4X9j5QiprCWa_8SJal0CAyTPZ0xEYYQdmvCq6Zt3QfFPJEkyafuMOwbOT3hngrG1jFbF6N0EL2tzejtl8a75Pl56"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-secondary leading-tight">Sarah Chen</p>
+<p class="text-[11px] text-primary font-medium">Logistics Manager</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-200">
+<img alt="Staff Member" data-alt="man in casual professional wear in an office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl04ZY9G6_KAzQKYRQbB6eNXS5Tn0mZ0EEPmugWfps83gmZyphE-WVx8kULfHxU1gLPE_TGtk1tMYfYGYgyL_q9Mr4yc0MdKtpm6Bx7L_tgYrOavFUHBbn19fntadv8PuUnBh8Q8uskh7GFOL310A8GXQbNtc8WMl4Jrz462oNNTodhDowVlgxtmZLUbOnOD0GYqWRohaNMNf4JPnH3M2AHA-ZIQA8jqTm7-7VEIN-E_mGY58y8Lx2GoRWfY9B-BCYOEv5maBRj7M3"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-secondary leading-tight">Julio Rivera</p>
+<p class="text-[11px] text-primary font-medium">Kit Coordinator</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+</div>
+<button class="w-full mt-4 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-dashed border-slate-200 text-slate-400 font-bold text-sm hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">person_add</span> Invite Staff
+                        </button>
+</div>
+</section>
+<!-- Import Configuration -->
+<section class="bg-secondary text-white p-8 rounded-xl shadow-xl shadow-secondary/20 relative overflow-hidden">
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+<h3 class="font-headline font-bold text-xl mb-6 relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined">upload_file</span> Data Import Rules
+                    </h3>
+<p class="text-white/70 text-sm mb-6 relative z-10">Configure required columns for the participant CSV import tool.</p>
+<div class="space-y-3 relative z-10">
+<label class="flex items-center justify-between p-3 bg-white/10 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+<span class="text-sm font-bold">bib_number</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-secondary-container/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 bg-white/10 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+<span class="text-sm font-bold">full_name</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-secondary-container/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 bg-white/10 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+<span class="text-sm font-bold">gender_label</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-secondary-container/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 bg-white/10 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+<span class="text-sm font-bold">category_code</span>
+<div class="relative inline-flex items-center">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-secondary-container/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 bg-white/10 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+<span class="text-sm font-bold">team_name</span>
+<div class="relative inline-flex items-center">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-secondary-container/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 bg-white/10 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+<span class="text-sm font-bold">birth_date</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-secondary-container/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</label>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-50/90 backdrop-blur-lg flex justify-around items-center h-16 px-4 z-50">
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-bold">People</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_applications</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-[10px] font-bold">Staff</span>
+</button>
+</nav>
+</body></html>
